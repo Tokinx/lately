@@ -12,7 +12,7 @@
 
 首先确保你的页面已经正确引用jQuery（建议2.0+），然后再引用ViewImage.js。
 
-    <script src="http://git.biji.io/lately/lately.min.js"></script>
+    <script src="//tokinx.github.io/lately/lately.min.js"></script>
 
 ## 启用
 
@@ -69,5 +69,5 @@ datetime： 4个月前 / title：49分钟前 / html：1天前
         });
     </script>
 
-  [1]: http://git.biji.io/lately/lately.js
-  [2]: http://git.biji.io/lately/lately.min.js
+  [1]: https://tokinx.github.io/lately/lately.js
+  [2]: https://tokinx.github.io/lately/lately.min.js
