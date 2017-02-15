@@ -8,7 +8,7 @@
  * @license MIT License - http://www.opensource.org/licenses/mit-license.php
  *
  * For usage and examples, visit:
- * http://lately.git.nz/
+ * http://git.biji.io/lately/
  *
  * Copyright (c) 2017, Biji.IO
  */
@@ -35,10 +35,10 @@
                 if ($(contain).is(":visible")) {
                     var datetime = $(contain).attr("datetime"),
                         title = $(contain).attr("title"),
-                        html = $(contain).html();
+                        htmls = $(contain).html();
                     if (!isNaN(new Date(datetime))) date = $.trim($(contain).attr("datetime"));
-                    else if (!isNaN(new Date(title))) date = $.trim($(contain).attr("title"));
-                    else if (!isNaN(new Date(html))) date = $.trim($(contain).html());
+                    else if (title ? !isNaN(new Date(title = title.replace(/-/g, "/"))) : false) date = title;
+                    else if (htmls ? !isNaN(new Date(htmls = htmls.replace(/-/g, "/"))) : false) date = htmls;
                     else return;
                     $(contain).html(lately_count(date));
                 }
