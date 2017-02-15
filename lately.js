@@ -8,7 +8,7 @@
  * @license MIT License - http://www.opensource.org/licenses/mit-license.php
  *
  * For usage and examples, visit:
- * http://git.biji.io/lately/
+ * https://tokinx.github.io/lately/
  *
  * Copyright (c) 2017, Biji.IO
  */
