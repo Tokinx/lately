@@ -26,7 +26,7 @@
         });
     </script>
 
-## 示例 http://git.biji.io/lately/#id-demo
+## 示例 https://tokinx.github.io/lately/#id-demo
 
     //datetime
     <time class="lately-a" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished" pubdate>2016-September-28</time>
