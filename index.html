@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Lately.js - 800bytes minimalist 'timeago' plugin.</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Based on jQuery, only 800bytes of minimalist 'timeago' plugin."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Tokin">
+    <link rel="stylesheet" href="//cdn.bootcss.com/pure/0.6.2/pure-min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="lately.min.js"></script>
+    <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            $.lately({
+                'target' : '.lately-a,.lately-b,.lately-c',
+//                'lang': {
+//                    'second': ' Second',
+//                    'minute': ' Minute',
+//                    'hour': ' Hour',
+//                    'day': ' Days',
+//                    'month': ' Month',
+//                    'year': ' Years',
+//                    'ago': ' Ago',
+//                    'error': 'NaN'
+//                }
+            });
+
+            $('.copy-time').html(new Date().getFullYear());
+        });
+        (function () {
+            var link_element = document.createElement("link"),
+                    s = document.getElementsByTagName("script")[0];
+            if (window.location.protocol !== "http:" && window.location.protocol !== "https:") {
+                link_element.href = "http:";
+            }
+            link_element.href += "//fonts.proxy.ustclug.org/css?family=Exo+2:100italic,100,200italic,200,300italic,300,400italic,400,500italic,500,600italic,600,700italic,700,800italic,800,900italic,900";
+            link_element.rel = "stylesheet";
+            link_element.type = "text/css";
+            s.parentNode.insertBefore(link_element, s);
+        })();
+    </script>
+</head>
+
+<body>
+<div id="main">
+    <div class="header">
+		<div class="pure-menu pure-menu-horizontal biji-navs">
+		    <ul class="pure-menu-list content">
+			<li class="pure-menu-item"><a href="#id-get" class="pure-menu-link">获取</a></li>
+			<li class="pure-menu-item"><a href="#id-help" class="pure-menu-link">引用</a></li>
+			<li class="pure-menu-item"><a href="#id-start" class="pure-menu-link">启用</a></li>
+			<li class="pure-menu-item"><a href="#id-demo" class="pure-menu-link">示例</a></li>
+			<li class="pure-menu-item"><a href="#id-dom" class="pure-menu-link">格式</a></li>
+			<li class="pure-menu-item"><a href="#id-lang" class="pure-menu-link">本地化</a></li>
+			<li class="pure-menu-item"><a href="https://github.com/Tokinx/ViewImage" target="_blank" class="pure-menu-link">GtiHub</a></li>
+		    </ul>
+		</div>
+        <h1>Lately.js</h1>
+        <h2>基于jQuery ，仅 800 字节却强大、好用的'Timeago'插件</h2>
+    </div>
+    <div class="content">
+        <h2 id="id-get" class="content-subhead">获取</h2>
+        <p>
+            你可以直接访问Lately.js的 <a href="https://github.com/Tokinx/Lately" target="_blank"
+                                 class="pure-button pure-button-primary"><i class="iconfont icon-github"></i> GitHub</a>
+            来获取最新版插件，当然你也可以通过下面的链接下载Lately.js：
+        </p>
+        <p>
+            <a href="lately.js" class="pure-button" download><i class="iconfont icon-download"></i> lately.js</a> or <a
+                href="lately.min.js" class="pure-button"
+                download><i class="iconfont icon-download"></i> lately.min.js</a>
+        </p>
+
+        <h2 id="id-help" class="content-subhead">引用</h2>
+        <p>
+            首先确保你的页面已经正确引用jQuery（建议2.0+），然后再引用Lately.js。
+        </p>
+        <p>
+        <pre class="code prettyprint"><code>&lt;script src=&quot;//tokinx.github.io/lately/lately.min.js&quot;&gt;&lt;/script></code></pre>
+        </p>
+
+        <h2 id="id-start" class="content-subhead">启用</h2>
+        <p>
+            我们为您提供了非常简便的初始化方法，方便您对程序进行一些个性化设置并正确启用
+        </p>
+        <p>
+        <pre class="code prettyprint"><code>&lt;script&gt;
+    jQuery(document).ready(function () {
+        $.lately({
+            'target' : '.lately-a,.lately-b,.lately-c'
+        });
+    });
+&lt;/script&gt;</code></pre>
+        </p>
+        <h2 id="id-demo" class="content-subhead">示例</h2>
+        <pre class="code prettyprint"><code>//datetime
+&lt;time class=&quot;lately-a&quot; datetime=&quot;2016-09-28T23:49:41+00:00&quot; itemprop=&quot;datePublished&quot; pubdate&gt;2016-September-28&lt;/time&gt;
+
+//title
+&lt;a href=&quot;#&quot; class=&quot;lately-b&quot; title=&quot;2017-02-14 18:56&quot;&gt;Any string&lt;/a&gt;
+
+//html
+&lt;a href=&quot;#&quot; class=&quot;lately-c&quot;&gt;2017-02-12 21:39&lt;/a&gt;
+</code></pre>
+
+        <p>上方代码执行效果如下：</p>
+        <p>datetime：
+            <time class="lately-a" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished" pubdate>
+                2016-September-28
+            </time>
+            /
+            title：<a href="#" class="lately-b" title="2017-02-14 18:56">Any string</a> /
+            html：<a href="#" class="lately-c">2017-02-12 21:39</a></p>
+
+        <h2 id="id-dom" class="content-subhead">Time格式</h2>
+        <p>
+            支持可直传JavaScript <code class="code prettyprint" style="padding: 5px!important;">new Date()</code> 对象的时间格式。
+        </p>
+
+        <h2 id="id-lang" class="content-subhead">本地化</h2>
+        <p>插件默认为 “简体中文” 语言，但是我们提供了非常简单的接口，方便您的本地化修改。</p>
+        <p>您可以在初始化的时候连同语言一起设置：</p>
+        <pre class="code prettyprint"><code>&lt;script&gt;
+    jQuery(document).ready(function () {
+        $.lately({
+            'target' : '.lately-a,.lately-b,.lately-c',
+            'lang': {
+                'second': ' Second',
+                'minute': ' Minute',
+                'hour': ' Hour',
+                'day': ' Days',
+                'month': ' Month',
+                'year': ' Years',
+                'ago': ' Ago',
+                'error': 'NaN'
+            }
+        });
+    });
+&lt;/script&gt;</code></pre>
+
+    </div>
+
+
+    <div class="footer">
+        <div class="legal pure-g content">
+            <div class="pure-u-1">
+                <p>
+                    <a href="https://github.com/Tokinx/Lately" target="_blank">GitHub Project</a> /
+                    <a href="https://biji.io" target="_blank">Author Blog</a>
+                </p>
+                <p class="legal-copyright">
+                    <a class="logo" href="https://biji.io"></a> © <time class="copy-time"></time> Biji.IO. All rights reserved.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
