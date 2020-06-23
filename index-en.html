@@ -15,16 +15,16 @@
     <script>
         Lately({
             target: '.lately-a,.lately-b,.lately-c',
-            // lang: {
-            //     'second': ' Second',
-            //     'minute': ' Minute',
-            //     'hour': ' Hour',
-            //     'day': ' Days',
-            //     'month': ' Month',
-            //     'year': ' Years',
-            //     'ago': ' Ago',
-            //     'error': 'NaN'
-            // }
+            lang: {
+                'second': 'Second',
+                'minute': 'Minute',
+                'hour': 'Hour',
+                'day': 'Days',
+                'month': 'Month',
+                'year': 'Years',
+                'ago': 'Ago',
+                'error': 'NaN'
+            }
         });
     </script>
 </head>
@@ -34,16 +34,16 @@
         <div class="header">
             <div class="sticky">
                 <h1><b>Lately</b><b class="ext">.js</b></h1>
-                <h2>原生 JavaScript，仅 <b>800Byte</b> 却简单、好用的 Timeago 插件</h2>
+                <h2>Native JavaScript, <b>800Byte</b> for only 800butt simple, easy-to-use Timeago plugins</h2>
                 <div class="navigate" id="navigate">
-                    <a href="#navigate" class="navigate-open">菜单</a>
+                    <a href="#navigate" class="navigate-open">Menu</a>
                     <ul class="content">
-                        <li><a href="#id-get">获取</a></li=>
-                        <li><a href="#id-help">引用</a></li>
-                        <li><a href="#id-start">启用</a></li>
-                        <li><a href="#id-demo">示例</a></li>
-                        <li><a href="#id-dom">格式</a></li>
-                        <li><a href="#id-lang">本地化</a></li>
+                        <li><a href="#id-get">Get</a></li=>
+                        <li><a href="#id-help">Reference</a></li>
+                        <li><a href="#id-start">Enable</a></li>
+                        <li><a href="#id-demo">Example</a></li>
+                        <li><a href="#id-dom">Format</a></li>
+                        <li><a href="#id-lang">Localization</a></li>
                         <li><a href="https://github.com/Tokinx/ViewImage" target="_blank">GtiHub</a></li>
                     </ul>
                 </div>
@@ -52,34 +52,35 @@
         </div>
         <div class="main">
             <div class="content">
-                <h2 id="id-get" class="content-subhead">获取</h2>
+                <h2 id="id-get" class="content-subhead">Get</h2>
                 <p>
-                    你可以直接访问Lately.js的 <a href="https://github.com/Tokinx/Lately" target="_blank"
-                        class="pure-button pure-button-primary">GitHub</a>
-                    来获取最新版插件，或通过链接下载Lately.js：
+                    You can access Lately.js' <a href="https://github.com/Tokinx/Lately" target="_blank"
+                        class="pure-button pure-button-primary">GitHub</a> directly to get the latest version of the
+                    plug-in, or download Lately.js via link:
                 </p>
                 <p>
                     <a href="lately.js" class="pure-button" download>🚀 lately.js</a> or <a
                         href="./index_files/lately.min.js.下载" class="pure-button" download>🚀 lately.min.js</a>
                 </p>
 
-                <h2 id="id-help" class="content-subhead">引用</h2>
+                <h2 id="id-help" class="content-subhead">Reference</h2>
                 <p>
-                    只需将lately.js放在您的页面上即可。
+                    Just put lately.js on your page.
                 </p>
                 <pre
                     class="code prettyprint"><code>&lt;script src=&quot;//tokinx.github.io/lately/lately.min.js&quot;&gt;&lt;/script></code></pre>
 
-                <h2 id="id-start" class="content-subhead">启用</h2>
+                <h2 id="id-start" class="content-subhead">Enable</h2>
                 <p>
-                    我们为您提供了非常简便的初始化方法，方便您对程序进行一些个性化设置并正确启用
+                    We give you a very simple initialization method so you can personalize your program and enable it
+                    correctly
                 </p>
                 <pre class="code prettyprint"><code>&lt;script&gt;
     Lately({
         'target' : '.lately-a,.lately-b,.lately-c'
     })
 &lt;/script&gt;</code></pre>
-                <h2 id="id-demo" class="content-subhead">示例</h2>
+                <h2 id="id-demo" class="content-subhead">Example</h2>
                 <pre class="code prettyprint"><code>// DateTime
 &lt;time class=&quot;lately-a&quot; datetime=&quot;2016-09-28T23:49:41+00:00&quot; itemprop=&quot;datePublished&quot; pubdate&gt;2016-September-28&lt;/time&gt;
 
@@ -90,7 +91,7 @@
 &lt;a href=&quot;#&quot; class=&quot;lately-c&quot;&gt;2017-02-12 21:39&lt;/a&gt;
 </code></pre>
 
-                <p>上方代码执行效果如下：</p>
+                <p>The code above performs as follows:</p>
                 <ul>
                     <li>DateTime：<time class="lately-a" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished"
                             pubdate>2016-September-28</time></li>
@@ -98,30 +99,32 @@
                     <li>HTML：<a href="#" class="lately-c">2017-02-12 21:39</a></li>
                 </ul>
 
-                <h2 id="id-dom" class="content-subhead">格式</h2>
+                <h2 id="id-dom" class="content-subhead">Format</h2>
                 <p>
-                    支持可直传JavaScript <code class="code prettyprint">new Date()</code>
-                    对象的时间格式。
+                    Supports time formats that can be passed directly to JavaScript objects. <code
+                        class="code prettyprint">new Date()</code>
                 </p>
 
-                <h2 id="id-lang" class="content-subhead">本地化</h2>
-                <p>插件默认为 “简体中文” 语言，但是我们提供了非常简单的接口，方便您的本地化修改。</p>
-                <p>您可以在初始化的时候连同语言一起设置：</p>
+                <h2 id="id-lang" class="content-subhead">Localization</h2>
+                <p>The plug-in defaults to the "Chinese Simplified" language, but we provide a very simple interface for
+                    your localized modifications.</p>
+                <p>You can set it up with the language at initialization:</p>
                 <pre class="code prettyprint"><code>&lt;script&gt;
     Lately({
         'target' : '.lately-a,.lately-b,.lately-c',
         'lang': {
-            'second': ' Second',
-            'minute': ' Minute',
-            'hour': ' Hour',
-            'day': ' Days',
-            'month': ' Month',
-            'year': ' Years',
-            'ago': ' Ago',
+            'second': 'Second',
+            'minute': 'Minute',
+            'hour': 'Hour',
+            'day': 'Days',
+            'month': 'Month',
+            'year': 'Years',
+            'ago': 'Ago',
             'error': 'NaN'
         }
     })
 &lt;/script&gt;</code></pre>
+
             </div>
 
 
@@ -130,7 +133,7 @@
                     <p class="legal-links">
                         <a href="https://github.com/Tokinx/Lately" target="_blank">GitHub Project</a> /
                         <a href="https://biji.io/" target="_blank">Author Blog</a> /
-                        <a href="./index-en.html">English</a>
+                        <a href="./index.html">简体中文</a>
                     </p>
                     <p class="legal-license">
                         <a class="logo" href="https://biji.io/"></a> ©
