@@ -1,5 +1,5 @@
 /**
- * Lately.js is a jQuery plugin that makes it easy to support automatically
+ * Lately.js - Native JavaScript, only 800Byte but simple and easy to use Timeago plugin
  *
  * @name Lately.js
  * @version 2.0.0
