@@ -73,5 +73,5 @@
 
   [1]: https://tokinx.github.io/lately/lately.js
   [2]: https://tokinx.github.io/lately/lately.min.js
-  [3]: ./blob/master/README-ZH.md
-  [4]: ./blob/master/README.md
+  [3]: README-ZH.md
+  [4]: README.md
