@@ -13,6 +13,11 @@
     <script src="./lately.min.js"></script>
     <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
     <script>
+        addEventListener("DOMContentLoaded", () => {
+            document.querySelector("#is-dark").addEventListener("change", (e) => {
+                document.body.classList = e.target.checked ? "dark" : "light"
+            })
+        });
         Lately({
             target: '.lately-a,.lately-b,.lately-c',
             // lang: {
@@ -39,15 +44,22 @@
                     <a href="#navigate" class="navigate-open">菜单</a>
                     <ul class="content">
                         <li><a href="#id-get">获取</a></li=>
-                        <li><a href="#id-help">引用</a></li>
-                        <li><a href="#id-start">启用</a></li>
-                        <li><a href="#id-demo">示例</a></li>
-                        <li><a href="#id-dom">格式</a></li>
-                        <li><a href="#id-lang">本地化</a></li>
+                        <li><a href="#id-reference">引用</a></li>
+                        <li><a href="#id-enable">启用</a></li>
+                        <li><a href="#id-example">示例</a></li>
+                        <li><a href="#id-format">格式</a></li>
+                        <li><a href="#id-localization">本地化</a></li>
                         <li><a href="https://github.com/Tokinx/ViewImage" target="_blank">GtiHub</a></li>
                     </ul>
                 </div>
                 <a href="#close" class="navigate-close"></a>
+                <div class="l2d">
+                    <span>黑暗模式：</span>
+                    <input id="is-dark" name="is-dark" type="checkbox">
+                    <label for="is-dark" class="pure-switch">
+                        <div class="dot"></div>
+                    </label>
+                </div>
             </div>
         </div>
         <div class="main">
@@ -63,14 +75,14 @@
                         class="pure-button" download>🚀 lately.min.js</a>
                 </p>
 
-                <h2 id="id-help" class="content-subhead">引用</h2>
+                <h2 id="id-reference" class="content-subhead">引用</h2>
                 <p>
                     只需将lately.js放在您的页面上即可。
                 </p>
                 <pre
                     class="code prettyprint"><code>&lt;script src=&quot;//tokinx.github.io/lately/lately.min.js&quot;&gt;&lt;/script></code></pre>
 
-                <h2 id="id-start" class="content-subhead">启用</h2>
+                <h2 id="id-enable" class="content-subhead">启用</h2>
                 <p>
                     我们为您提供了非常简便的初始化方法，方便您对程序进行一些个性化设置并正确启用
                 </p>
@@ -79,7 +91,7 @@
         'target' : '.lately-a,.lately-b,.lately-c'
     })
 &lt;/script&gt;</code></pre>
-                <h2 id="id-demo" class="content-subhead">示例</h2>
+                <h2 id="id-example" class="content-subhead">示例</h2>
                 <pre class="code prettyprint"><code>// DateTime
 &lt;time class=&quot;lately-a&quot; datetime=&quot;2016-09-28T23:49:41+00:00&quot; itemprop=&quot;datePublished&quot; pubdate&gt;2016-September-28&lt;/time&gt;
 
@@ -98,13 +110,13 @@
                     <li>HTML：<a href="#" class="lately-c">2017-02-12 21:39</a></li>
                 </ul>
 
-                <h2 id="id-dom" class="content-subhead">格式</h2>
+                <h2 id="id-format" class="content-subhead">格式</h2>
                 <p>
                     支持可直传JavaScript <code class="code prettyprint">new Date()</code>
                     对象的时间格式。
                 </p>
 
-                <h2 id="id-lang" class="content-subhead">本地化</h2>
+                <h2 id="id-localization" class="content-subhead">本地化</h2>
                 <p>插件默认为 “简体中文” 语言，但是我们提供了非常简单的接口，方便您的本地化修改。</p>
                 <p>您可以在初始化的时候连同语言一起设置：</p>
                 <pre class="code prettyprint"><code>&lt;script&gt;

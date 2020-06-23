@@ -16,6 +16,11 @@
         if (navigator.language.substr(0, 2) === "zh" && location.hash !== "#en") {
             window.location.replace('./index-zh.html');
         }
+        addEventListener("DOMContentLoaded", () => {
+            document.querySelector("#is-dark").addEventListener("change", (e) => {
+                document.body.classList = e.target.checked ? "dark" : "light"
+            })
+        });
         Lately({
             target: '.lately-a,.lately-b,.lately-c',
             lang: {
@@ -42,15 +47,22 @@
                     <a href="#navigate" class="navigate-open">Menu</a>
                     <ul class="content">
                         <li><a href="#id-get">Get</a></li=>
-                        <li><a href="#id-help">Reference</a></li>
-                        <li><a href="#id-start">Enable</a></li>
-                        <li><a href="#id-demo">Example</a></li>
-                        <li><a href="#id-dom">Format</a></li>
-                        <li><a href="#id-lang">Localization</a></li>
+                        <li><a href="#id-reference">Reference</a></li>
+                        <li><a href="#id-enable">Enable</a></li>
+                        <li><a href="#id-example">Example</a></li>
+                        <li><a href="#id-format">Format</a></li>
+                        <li><a href="#id-localization">Localization</a></li>
                         <li><a href="https://github.com/Tokinx/ViewImage" target="_blank">GtiHub</a></li>
                     </ul>
                 </div>
                 <a href="#close" class="navigate-close"></a>
+                <div class="l2d">
+                    <span>Dark Mode: </span>
+                    <input id="is-dark" name="is-dark" type="checkbox">
+                    <label for="is-dark" class="pure-switch">
+                        <div class="dot"></div>
+                    </label>
+                </div>
             </div>
         </div>
         <div class="main">
@@ -66,14 +78,14 @@
                         class="pure-button" download>🚀 lately.min.js</a>
                 </p>
 
-                <h2 id="id-help" class="content-subhead">Reference</h2>
+                <h2 id="id-reference" class="content-subhead">Reference</h2>
                 <p>
                     Just put lately.js on your page.
                 </p>
                 <pre
                     class="code prettyprint"><code>&lt;script src=&quot;//tokinx.github.io/lately/lately.min.js&quot;&gt;&lt;/script></code></pre>
 
-                <h2 id="id-start" class="content-subhead">Enable</h2>
+                <h2 id="id-enable" class="content-subhead">Enable</h2>
                 <p>
                     We give you a very simple initialization method so you can personalize your program and enable it
                     correctly
@@ -83,7 +95,7 @@
         'target' : '.lately-a,.lately-b,.lately-c'
     })
 &lt;/script&gt;</code></pre>
-                <h2 id="id-demo" class="content-subhead">Example</h2>
+                <h2 id="id-example" class="content-subhead">Example</h2>
                 <pre class="code prettyprint"><code>// DateTime
 &lt;time class=&quot;lately-a&quot; datetime=&quot;2016-09-28T23:49:41+00:00&quot; itemprop=&quot;datePublished&quot; pubdate&gt;2016-September-28&lt;/time&gt;
 
@@ -102,13 +114,13 @@
                     <li>HTML：<a href="#" class="lately-c">2017-02-12 21:39</a></li>
                 </ul>
 
-                <h2 id="id-dom" class="content-subhead">Format</h2>
+                <h2 id="id-format" class="content-subhead">Format</h2>
                 <p>
                     Supports time formats that can be passed directly to JavaScript objects. <code
                         class="code prettyprint">new Date()</code>
                 </p>
 
-                <h2 id="id-lang" class="content-subhead">Localization</h2>
+                <h2 id="id-localization" class="content-subhead">Localization</h2>
                 <p>The plug-in defaults to the "Chinese Simplified" language, but we provide a very simple interface for
                     your localized modifications.</p>
                 <p>You can set it up with the language at initialization:</p>
