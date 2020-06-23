@@ -1,6 +1,6 @@
 # Lately.js
 
-Native JavaScript, 800Byte for only 800butt simple, easy-to-use Timeago plugins
+Native JavaScript, only 800Byte but simple and easy to use Timeago plugin
 
 [简体中文][3] / [English][3]
 
