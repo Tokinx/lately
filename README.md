@@ -54,21 +54,19 @@ The plug-in defaults to the "Chinese Simplified" language, but we provide a very
 You can set it up with the language at initialization:
 
     <script>
-        jQuery(document).ready(function () {
-            $.lately({
-                'target' : '.lately-a,.lately-b,.lately-c',
-                'lang': {
-                    'second': ' Second',
-                    'minute': ' Minute',
-                    'hour': ' Hour',
-                    'day': ' Days',
-                    'month': ' Month',
-                    'year': ' Years',
-                    'ago': ' Ago',
-                    'error': 'NaN'
-                }
-            });
-        });
+        Lately({
+            'target' : '.lately-a,.lately-b,.lately-c',
+            'lang': {
+                'second': ' Second',
+                'minute': ' Minute',
+                'hour': ' Hour',
+                'day': ' Days',
+                'month': ' Month',
+                'year': ' Years',
+                'ago': ' Ago',
+                'error': 'NaN'
+            }
+        })
     </script>
 
   [1]: https://tokinx.github.io/lately/lately.js

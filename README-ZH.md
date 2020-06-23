@@ -54,21 +54,19 @@
 您可以在初始化的时候连同语言一起设置：
 
     <script>
-        jQuery(document).ready(function () {
-            $.lately({
-                'target' : '.lately-a,.lately-b,.lately-c',
-                'lang': {
-                    'second': ' Second',
-                    'minute': ' Minute',
-                    'hour': ' Hour',
-                    'day': ' Days',
-                    'month': ' Month',
-                    'year': ' Years',
-                    'ago': ' Ago',
-                    'error': 'NaN'
-                }
-            });
-        });
+        Lately({
+            'target' : '.lately-a,.lately-b,.lately-c',
+            'lang': {
+                'second': ' Second',
+                'minute': ' Minute',
+                'hour': ' Hour',
+                'day': ' Days',
+                'month': ' Month',
+                'year': ' Years',
+                'ago': ' Ago',
+                'error': 'NaN'
+            }
+        })
     </script>
 
   [1]: https://tokinx.github.io/lately/lately.js
