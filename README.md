@@ -2,7 +2,7 @@
 
 Native JavaScript, only 800Byte but simple and easy to use Timeago plugin
 
-[简体中文][3] / [English][3]
+[简体中文][3] / [English][4]
 
 ## Get
 
