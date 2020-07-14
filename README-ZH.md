@@ -2,7 +2,7 @@
 
 原生 JavaScript，仅 800Byte 却简单、好用的 Timeago 插件
 
-[简体中文][3] / [English][3]
+[简体中文][3] / [English][4]
 
 ## 获取
 
