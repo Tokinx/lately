@@ -10,29 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="Tokin">
     <link rel="stylesheet" href="./static/style.css">
-    <script>
-        if (navigator.language.substr(0, 2) === "zh" && location.hash !== "#en") {
-            window.location.replace('./index-zh.html');
-        }
-        addEventListener("DOMContentLoaded", () => {
-            document.querySelector("#is-dark").addEventListener("change", (e) => {
-                document.body.classList = e.target.checked ? "dark" : "light"
-            })
-            Lately({
-                target: '.lately-a,.lately-b,.lately-c',
-                lang: {
-                    'second': 'Second',
-                    'minute': 'Minute',
-                    'hour': 'Hour',
-                    'day': 'Days',
-                    'month': 'Month',
-                    'year': 'Years',
-                    'ago': 'Ago',
-                    'error': 'NaN'
-                }
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -159,6 +136,29 @@
     </div>
     <script src="./lately.min.js"></script>
     <script src="//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script>
+        if (navigator.language.substr(0, 2) === "zh" && location.hash !== "#en") {
+            window.location.replace('./index-zh.html');
+        }
+        addEventListener("DOMContentLoaded", () => {
+            document.querySelector("#is-dark").addEventListener("change", (e) => {
+                document.body.classList = e.target.checked ? "dark" : "light"
+            })
+            Lately({
+                target: '.lately-a,.lately-b,.lately-c',
+                lang: {
+                    'second': 'Second',
+                    'minute': 'Minute',
+                    'hour': 'Hour',
+                    'day': 'Days',
+                    'month': 'Month',
+                    'year': 'Years',
+                    'ago': 'Ago',
+                    'error': 'NaN'
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
