@@ -2,7 +2,7 @@
  * Lately.js - Native JavaScript, only 800Byte but simple and easy to use Timeago plugin
  *
  * @name Lately.js
- * @version 2.0.0
+ * @version 2.0.1
  * @author Tokin (Tokinx)
  * @license MIT License - http://www.opensource.org/licenses/mit-license.php
  *
@@ -45,20 +45,18 @@
             else result = lang.error;
             return result + lang.ago;
         }
-        addEventListener("DOMContentLoaded", () => {
-            for (let contain of document.querySelectorAll(target)) {
-                let date = '',
-                    date_time = contain.dateTime,
-                    title = contain.title,
-                    html = contain.innerHTML;
-                if (date_time ? !isNaN(new Date(date_time = (date_time.replace(/(.*)[a-z](.*)\+(.*)/gi, "$1 $2")).replace(/-/g, "/"))) : false) date = date_time;
-                else if (title ? !isNaN(new Date(title = title.replace(/-/g, "/"))) : false) date = title;
-                else if (html ? !isNaN(new Date(html = html.replace(/-/g, "/"))) : false) date = html;
-                else return;
-                contain.title = date;
-                contain.innerHTML = _count(date);
-            }
-        })
+        for (let contain of document.querySelectorAll(target)) {
+            let date = '',
+                date_time = contain.dateTime,
+                title = contain.title,
+                html = contain.innerHTML;
+            if (date_time ? !isNaN(new Date(date_time = (date_time.replace(/(.*)[a-z](.*)\+(.*)/gi, "$1 $2")).replace(/-/g, "/"))) : false) date = date_time;
+            else if (title ? !isNaN(new Date(title = title.replace(/-/g, "/"))) : false) date = title;
+            else if (html ? !isNaN(new Date(html = html.replace(/-/g, "/"))) : false) date = html;
+            else return;
+            contain.title = date;
+            contain.innerHTML = _count(date);
+        }
     }
 
     _global = (function () { return this || (0, eval)('this'); }());
