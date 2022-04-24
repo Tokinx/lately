@@ -61,7 +61,7 @@
                 }
                 return this;
             }
-            this.format = that.format
+            this.format = format
         }
     }
 })();
