@@ -1,6 +1,6 @@
 # Lately.js
 
-Native JavaScript, only 800Byte but simple and easy to use Timeago plugin
+Native JavaScript, only 800 Byte but simple and easy to use Timeago plugin
 
 [简体中文][3] / [English][4]
 
@@ -21,21 +21,19 @@ Just put lately.js on your page.
 We give you a very simple initialization method so you can personalize your program and enable it correctly
 
     <script>
-        Lately({
-            'target' : '.lately-a,.lately-b,.lately-c'
-        })
+        window.Lately && Lately.target('time, .lately').init();
     </script>
 
 ## Example: https://tokinx.github.io/lately
 
     //datetime
-    <time class="lately-a" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished" pubdate>2016-September-28</time>
+    <time class="lately" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished" pubdate>2016-September-28</time>
 
     //title
-    <a href="#" class="lately-b" title="2017-02-14 18:56">Any string</a>
+    <a href="#" class="lately" title="2017-02-14 18:56">Any string</a>
 
     //html
-    <a href="#" class="lately-c">2017-02-12 21:39</a>
+    <a href="#" class="lately">2017-02-12 21:39</a>
 
 The code above performs as follows:
 
@@ -54,9 +52,7 @@ The plug-in defaults to the "Chinese Simplified" language, but we provide a very
 You can set it up with the language at initialization:
 
     <script>
-        Lately({
-            'target' : '.lately-a,.lately-b,.lately-c',
-            'lang': {
+        window.Lately && Lately.target('time, .lately').lang({
                 'second': ' Second',
                 'minute': ' Minute',
                 'hour': ' Hour',
@@ -65,8 +61,7 @@ You can set it up with the language at initialization:
                 'year': ' Years',
                 'ago': ' Ago',
                 'error': 'NaN'
-            }
-        })
+            }).init();
     </script>
 
   [1]: https://tokinx.github.io/lately/lately.js

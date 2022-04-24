@@ -2,63 +2,66 @@
  * Lately.js - Native JavaScript, only 800Byte but simple and easy to use Timeago plugin
  *
  * @name Lately.js
- * @version 2.0.1
+ * @version 2.5.0
  * @author Tokin (Tokinx)
  * @license MIT License - http://www.opensource.org/licenses/mit-license.php
  *
  * For usage and examples, visit:
  * https://tokinx.github.io/lately/
  *
- * Copyright (c) 2017, Biji.IO
+ * Copyright (c) 2017, biji.io
  */
-; (function (global, undefined) {
-    "use strict"
-    let _global;
-    let Lately = (option) => {
-        let target = option.target || ".time";
-        let lang = option.lang || {
-            'second': '秒',
-            'minute': '分钟',
-            'hour': '小时',
-            'day': '天',
-            'month': '个月',
-            'year': '年',
-            'ago': '前',
-            'error': 'NaN',
+(() => {
+    window.Lately = new function () {
+        this.target = 'time'
+        this.lang = {
+            second: "秒",
+            minute: "分钟",
+            hour: "小时",
+            day: "天",
+            month: "个月",
+            year: "年",
+            ago: "前",
+            error: "NaN"
         };
-        let _count = (date) => {
+        let format = (date) => {
             date = new Date(date);
-            let second = (new Date().getTime() - date.getTime()) / 1000,
-                minute = second / 60,
-                hour = minute / 60,
-                day = hour / 24,
-                month = day / 30,
-                year = month / 12,
-                floor = (num, _lang) => Math.floor(num) + _lang,
-                result = '';
-            if (year >= 1) result = floor(year, lang.year);
-            else if (month >= 1) result = floor(month, lang.month);
-            else if (day >= 1) result = floor(day, lang.day);
-            else if (hour >= 1) result = floor(hour, lang.hour);
-            else if (minute >= 1) result = floor(minute, lang.minute);
-            else if (second >= 1) result = floor(second, lang.second);
-            else result = lang.error;
-            return result + lang.ago;
-        }
-        for (let contain of document.querySelectorAll(target)) {
-            let date = '',
-                date_time = contain.dateTime,
-                title = contain.title,
-                html = contain.innerHTML;
-            if (date_time ? !isNaN(new Date(date_time = (date_time.replace(/(.*)[a-z](.*)\+(.*)/gi, "$1 $2")).replace(/-/g, "/"))) : false) date = date_time;
-            else if (title ? !isNaN(new Date(title = title.replace(/-/g, "/"))) : false) date = title;
-            else if (html ? !isNaN(new Date(html = html.replace(/-/g, "/"))) : false) date = html;
-            else return;
-            contain.title = date;
-            contain.innerHTML = _count(date);
+            let floor = (num, _lang) => Math.floor(num) + _lang,
+                obj = new function () {
+                    this.second = (new Date().getTime() - date.getTime()) / 1000;
+                    this.minute = this.second / 60;
+                    this.hour = this.minute / 60;
+                    this.day = this.hour / 24;
+                    this.month = this.day / 30;
+                    this.year = this.month / 12
+                },
+                key = Object.keys(obj).reverse().find(_ => obj[_] >= 1);
+            return (key ? floor(obj[key], this.lang[key]) : this.lang.error) + this.lang.ago;
+        },
+        _val = (date) => {
+            let _date = new Date(date);
+            return isNaN(_date.getTime()) ? false : _date.getTime();
+        },
+        that = this;
+        return new function(){
+            this.target = (target) => {
+                if (target) that.target = target;
+                return this;
+            }
+            this.lang = (lang) => {
+                if (lang) that.lang = lang;
+                return this;
+            }
+            this.init = () => {
+                for (let el of document.querySelectorAll(that.target)) {
+                    let date = _val(el.dateTime) || _val(el.title) || _val(el.innerHTML) || 0;
+                    if (!date) return;
+                    el.title = new Date(date).toLocaleString();
+                    el.innerHTML = format(date);
+                }
+                return this;
+            }
+            this.format = that.format
         }
     }
-
-    _global = (function () { return this || (0, eval)('this'); }());
-    !('Lately' in _global) && (_global.Lately = Lately);
-}());
+})();

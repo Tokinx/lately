@@ -1,6 +1,6 @@
 # Lately.js
 
-原生 JavaScript，仅 800Byte 却简单、好用的 Timeago 插件
+原生 JavaScript，仅 800 字节！简单、好用的 Timeago 插件
 
 [简体中文][3] / [English][4]
 
@@ -21,21 +21,19 @@
 我们为您提供了非常简便的初始化方法，方便您对程序进行一些个性化设置并正确启用
 
     <script>
-        Lately({
-            'target' : '.lately-a,.lately-b,.lately-c'
-        })
+        window.Lately && Lately.target('time, .lately').init();
     </script>
 
 ## 示例: https://tokinx.github.io/lately
 
     //datetime
-    <time class="lately-a" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished" pubdate>2016-September-28</time>
+    <time class="lately" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished" pubdate>2016-September-28</time>
 
     //title
-    <a href="#" class="lately-b" title="2017-02-14 18:56">Any string</a>
+    <a href="#" class="lately" title="2017-02-14 18:56">Any string</a>
 
     //html
-    <a href="#" class="lately-c">2017-02-12 21:39</a>
+    <a href="#" class="lately">2017-02-12 21:39</a>
 
 上方代码执行效果如下：
 
@@ -54,9 +52,7 @@
 您可以在初始化的时候连同语言一起设置：
 
     <script>
-        Lately({
-            'target' : '.lately-a,.lately-b,.lately-c',
-            'lang': {
+        window.Lately && Lately.target('time, .lately').lang({
                 'second': ' Second',
                 'minute': ' Minute',
                 'hour': ' Hour',
@@ -65,8 +61,7 @@
                 'year': ' Years',
                 'ago': ' Ago',
                 'error': 'NaN'
-            }
-        })
+            }).init();
     </script>
 
   [1]: https://tokinx.github.io/lately/lately.js

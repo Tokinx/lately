@@ -66,27 +66,25 @@
                     correctly
                 </p>
                 <pre class="code prettyprint"><code>&lt;script&gt;
-    Lately({
-        'target' : '.lately-a,.lately-b,.lately-c'
-    })
+     window.Lately && Lately.target('time, .lately').init();
 &lt;/script&gt;</code></pre>
                 <h2 id="id-example" class="content-subhead">Example</h2>
                 <pre class="code prettyprint"><code>// DateTime
-&lt;time class=&quot;lately-a&quot; datetime=&quot;2016-09-28T23:49:41+00:00&quot; itemprop=&quot;datePublished&quot; pubdate&gt;2016-September-28&lt;/time&gt;
+&lt;time class=&quot;lately&quot; datetime=&quot;2016-09-28T23:49:41+00:00&quot; itemprop=&quot;datePublished&quot; pubdate&gt;2016-September-28&lt;/time&gt;
 
 // Title
-&lt;a href=&quot;#&quot; class=&quot;lately-b&quot; title=&quot;2017-02-14 18:56&quot;&gt;Any string&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;lately&quot; title=&quot;2017-02-14 18:56&quot;&gt;Any string&lt;/a&gt;
 
 // HTML
-&lt;a href=&quot;#&quot; class=&quot;lately-c&quot;&gt;2017-02-12 21:39&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;lately&quot;&gt;2017-02-12 21:39&lt;/a&gt;
 </code></pre>
 
                 <p>The code above performs as follows:</p>
                 <ul>
-                    <li>DateTime：<time class="lately-a" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished"
+                    <li>DateTime：<time class="lately" datetime="2016-09-28T23:49:41+00:00" itemprop="datePublished"
                             pubdate>2016-September-28</time></li>
-                    <li>Title：<a href="#" class="lately-b" title="2017-02-14 18:56">Any string</a></li>
-                    <li>HTML：<a href="#" class="lately-c">2017-02-12 21:39</a></li>
+                    <li>Title：<a href="#" class="lately" title="2017-02-14 18:56">Any string</a></li>
+                    <li>HTML：<a href="#" class="lately">2017-02-12 21:39</a></li>
                 </ul>
 
                 <h2 id="id-format" class="content-subhead">Format</h2>
@@ -100,19 +98,16 @@
                     your localized modifications.</p>
                 <p>You can set it up with the language at initialization:</p>
                 <pre class="code prettyprint"><code>&lt;script&gt;
-    Lately({
-        'target' : '.lately-a,.lately-b,.lately-c',
-        'lang': {
-            'second': 'Second',
-            'minute': 'Minute',
-            'hour': 'Hour',
-            'day': 'Days',
-            'month': 'Month',
-            'year': 'Years',
-            'ago': 'Ago',
-            'error': 'NaN'
-        }
-    })
+        window.Lately && Lately.target('time, .lately').lang({
+                'second': ' Second',
+                'minute': ' Minute',
+                'hour': ' Hour',
+                'day': ' Days',
+                'month': ' Month',
+                'year': ' Years',
+                'ago': ' Ago',
+                'error': 'NaN'
+            }).init();
 &lt;/script&gt;</code></pre>
 
             </div>
@@ -144,19 +139,16 @@
             document.querySelector("#is-dark").addEventListener("change", (e) => {
                 document.body.classList = e.target.checked ? "dark" : "light"
             })
-            Lately({
-                target: '.lately-a,.lately-b,.lately-c',
-                lang: {
-                    'second': 'Second',
-                    'minute': 'Minute',
-                    'hour': 'Hour',
-                    'day': 'Days',
-                    'month': 'Month',
-                    'year': 'Years',
-                    'ago': 'Ago',
-                    'error': 'NaN'
-                }
-            });
+            window.Lately && Lately.target('time, .lately').lang({
+                'second': ' Second',
+                'minute': ' Minute',
+                'hour': ' Hour',
+                'day': ' Days',
+                'month': ' Month',
+                'year': ' Years',
+                'ago': ' Ago',
+                'error': 'NaN'
+            }).init();
         });
     </script>
 </body>
