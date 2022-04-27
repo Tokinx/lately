@@ -65,7 +65,7 @@
                     我们为您提供了非常简便的初始化方法，方便您对程序进行一些个性化设置并正确启用
                 </p>
                 <pre class="code prettyprint"><code>&lt;script&gt;
-     window.Lately && Lately.target('time, .lately').init();
+     window.Lately && Lately.init({ target: 'time, .lately' });
 &lt;/script&gt;</code></pre>
                 <h2 id="id-example" class="content-subhead">示例</h2>
                 <pre class="code prettyprint"><code>// DateTime
@@ -96,7 +96,7 @@
                 <p>插件默认为 “简体中文” 语言，但是我们提供了非常简单的接口，方便您的本地化修改。</p>
                 <p>您可以在初始化的时候连同语言一起设置：</p>
                 <pre class="code prettyprint"><code>&lt;script&gt;
-        window.Lately && Lately.target('time, .lately').lang({
+        window.Lately && Lately.init({ target: 'time, .lately', lang: {
                 'second': ' Second',
                 'minute': ' Minute',
                 'hour': ' Hour',
@@ -105,7 +105,8 @@
                 'year': ' Years',
                 'ago': ' Ago',
                 'error': 'NaN'
-            }).init();
+            }
+        });
 &lt;/script&gt;</code></pre>
             </div>
 
@@ -133,7 +134,7 @@
             document.querySelector("#is-dark").addEventListener("change", (e) => {
                 document.body.classList = e.target.checked ? "dark" : "light"
             })
-            window.Lately && Lately.target('time, .lately').init();
+            window.Lately && Lately.init({ target: 'time, .lately' });
         });
     </script>
 </body>

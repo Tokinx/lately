@@ -66,7 +66,7 @@
                     correctly
                 </p>
                 <pre class="code prettyprint"><code>&lt;script&gt;
-     window.Lately && Lately.target('time, .lately').init();
+     window.Lately && Lately.init({ target: 'time, .lately' });
 &lt;/script&gt;</code></pre>
                 <h2 id="id-example" class="content-subhead">Example</h2>
                 <pre class="code prettyprint"><code>// DateTime
@@ -98,7 +98,7 @@
                     your localized modifications.</p>
                 <p>You can set it up with the language at initialization:</p>
                 <pre class="code prettyprint"><code>&lt;script&gt;
-        window.Lately && Lately.target('time, .lately').lang({
+        window.Lately && Lately.init({ target: 'time, .lately', lang: {
                 'second': ' Second',
                 'minute': ' Minute',
                 'hour': ' Hour',
@@ -107,7 +107,8 @@
                 'year': ' Years',
                 'ago': ' Ago',
                 'error': 'NaN'
-            }).init();
+            }
+        });
 &lt;/script&gt;</code></pre>
 
             </div>
@@ -139,16 +140,17 @@
             document.querySelector("#is-dark").addEventListener("change", (e) => {
                 document.body.classList = e.target.checked ? "dark" : "light"
             })
-            window.Lately && Lately.target('time, .lately').lang({
-                'second': ' Second',
-                'minute': ' Minute',
-                'hour': ' Hour',
-                'day': ' Days',
-                'month': ' Month',
-                'year': ' Years',
-                'ago': ' Ago',
-                'error': 'NaN'
-            }).init();
+            window.Lately && Lately.init({ target: 'time, .lately', lang: {
+                    'second': ' Second',
+                    'minute': ' Minute',
+                    'hour': ' Hour',
+                    'day': ' Days',
+                    'month': ' Month',
+                    'year': ' Years',
+                    'ago': ' Ago',
+                    'error': 'NaN'
+                }
+            });
         });
     </script>
 </body>
